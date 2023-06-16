@@ -1,12 +1,13 @@
 import {getPhoto} from './server-api'
+const axios = require('axios').default;
 
 const form = document.querySelector('.search-form');
 const bivEl = document.querySelector('.gallery')
 const buttonEl = document.querySelector('.load-more')
 
-const axios = require('axios').default;
+buttonEl.classList.add('is-hedden')
 
-let input = '';
+
 
 form.addEventListener('submit', onSubmitForm)
 buttonEl.addEventListener('click', onClickBtn)
@@ -19,7 +20,7 @@ function onSubmitForm(evt) {
   bivEl.innerHTML = '';
   
   input = evt.currentTarget.elements.searchQuery.value
-  //  form.reset();
+   form.reset();
   
   getPhoto(input)
  

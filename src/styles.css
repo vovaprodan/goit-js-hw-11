@@ -1,3 +1,8 @@
 .gallery {
     display: flex;
+    flex-wrap: wrap;
+   
+}
+.is-hedden {
+    display: none;
 }
