@@ -30,12 +30,14 @@ function onSubmitForm(evt) {
   getPhoto(inputValue, page).then(data => {
     const photo = data.hits
     const totalHits = data.totalHits;
+    buttonEl.classList.remove('is-hedden')
     if (photo.length === 0) {
       Notiflix.Notify.failure('Sorry there are no images matching your search query. Please try again.');
+    buttonEl.classList.add('is-hedden')
     }
     getMarkup(photo)
       
-    buttonEl.classList.remove('is-hedden')
+    
   }) 
 }
 function onClickBtn() {
@@ -62,7 +64,7 @@ photo.map((photo) => {
         const markup = `<div class="photo-card"><img src="${photo.webformatURL}"alt="${photo.tags}"loading="lazy"width='320'/>
           <div class="info"><p class="info-item"><b>Likes</b>${photo.likes}</p><p class="info-item"><b>Views</b>${photo.views}</p>
     <p class="info-item">
-      <b>Comments</b>${photo.comments}
+       <b>Comments</b>${photo.comments}
     </p>
     <p class="info-item">
       <b>Downloads</b>${photo.downloads}

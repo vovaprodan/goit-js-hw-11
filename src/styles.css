@@ -1,8 +1,28 @@
 .gallery {
+    padding: 15px;
     display: flex;
     flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
    
 }
 .is-hedden {
     display: none;
+}
+.search-form {
+    padding: 15px;
+   background-color: aqua;
+    text-align: center;
+}
+.load-more {
+
+}
+.photo-card {
+margin-right: 25px;
+}
+.info {
+    
+}
+.info-item {
+  
 }
