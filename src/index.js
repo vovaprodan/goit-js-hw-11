@@ -36,7 +36,7 @@ function onSubmitForm(evt) {
     buttonEl.classList.remove('is-hedden')
   }) 
 }
-function onClickBtn() {
+function onClickBtn(input) {
  
   page += 1
   total = page * perPage
