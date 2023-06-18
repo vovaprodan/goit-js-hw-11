@@ -18,7 +18,7 @@ function onSubmitForm(evt) {
    buttonEl.classList.add('is-hedden')
   evt.preventDefault();
   bivEl.innerHTML = '';
-  input = evt.currentTarget.elements.searchQuery.value
+  const input = evt.currentTarget.elements.searchQuery.value
 
   if (input === '') {
    return 
