@@ -62,12 +62,13 @@ function onClickBtn() {
 function getMarkup(photo) {
 photo.map((photo) => {
         const markup = `<div class="photo-card"><img src="${photo.webformatURL}"alt="${photo.tags}"loading="lazy"width='320'/>
-          <div class="info"><p class="info-item"><b>Likes</b>${photo.likes}</p><p class="info-item"><b>Views</b>${photo.views}</p>
+          <div class="info"><p class="info-item"><b>Likes</b><br>${photo.likes}</p>
+          <p class="info-item"><b>Views</b><br>${photo.views}</p>
     <p class="info-item">
-       <b>Comments</b>${photo.comments}
+       <b>Comments</b><br>${photo.comments}
     </p>
     <p class="info-item">
-      <b>Downloads</b>${photo.downloads}
+      <b>Downloads</b><br>${photo.downloads}
     </p>
   </div>
 </div>`
