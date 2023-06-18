@@ -1,6 +1,7 @@
 import {getPhoto} from './server-api'
 import Notiflix from 'notiflix';
 
+let inputValue = '';
 const form = document.querySelector('.search-form');
 const bivEl = document.querySelector('.gallery')
 const buttonEl = document.querySelector('.load-more')
@@ -18,16 +19,17 @@ function onSubmitForm(evt) {
    buttonEl.classList.add('is-hedden')
   evt.preventDefault();
   bivEl.innerHTML = '';
-  const input = evt.currentTarget.elements.searchQuery.value
+  inputValue = evt.currentTarget.elements.searchQuery.value
 
-  if (input === '') {
+  if (inputValue === '') {
    return 
   }
   form.reset();
  page = 1
 
-  getPhoto(input, page).then(data => {
+  getPhoto(inputValue, page).then(data => {
     const photo = data.hits
+    const totalHits = data.totalHits;
     if (photo.length === 0) {
       Notiflix.Notify.failure('Sorry there are no images matching your search query. Please try again.');
     }
@@ -36,20 +38,21 @@ function onSubmitForm(evt) {
     buttonEl.classList.remove('is-hedden')
   }) 
 }
-function onClickBtn(input) {
+function onClickBtn() {
  
   page += 1
   total = page * perPage
   console.log(total)
-  getPhoto(input, page).then(data => {
-    const totalHits = data.totalHits
+  getPhoto(inputValue, page).then(data => {
+    console.log(data)
     const photo = data.hits
     getMarkup(photo)
+    
 
-    if (total > totalHits) {
-      buttonEl.classList.add('is-hedden')
-      Notiflix.Notify.failure('Sorry there are no images matching your search query. Please try again.');
-    }
+    // if (total > totalHits) {
+    //   buttonEl.classList.add('is-hedden')
+    //   Notiflix.Notify.failure('Sorry there are no images matching your search query. Please try again.');
+    // }
   })
 }
 
