@@ -42,17 +42,18 @@ function onClickBtn() {
  
   page += 1
   total = page * perPage
-  console.log(total)
+  
   getPhoto(inputValue, page).then(data => {
-    console.log(data)
+    const totalHits = data.totalHits;
+    
     const photo = data.hits
     getMarkup(photo)
     
 
-    // if (total > totalHits) {
-    //   buttonEl.classList.add('is-hedden')
-    //   Notiflix.Notify.failure('Sorry there are no images matching your search query. Please try again.');
-    // }
+    if (total > totalHits) {
+      buttonEl.classList.add('is-hedden')
+      Notiflix.Notify.failure('Sorry there are no images matching your search query. Please try again.');
+    }
   })
 }
 
